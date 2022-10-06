@@ -12,7 +12,7 @@ const Testimonials = () => {
         const getTestimonials = async () => {
             try {
                 const res = await testimonialAPI.get('/testimonials')
-                setTestimonials(res.data.allTestimonials)
+                setTestimonials(res.data)
             } catch (error) {
                 setTestimonials([]);
             } finally {

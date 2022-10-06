@@ -20,6 +20,7 @@ function SignUp() {
         lastName: "",
         email: "",
         password: "",
+        image: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
       }}
       validationSchema={Yup.object({
         firstName: Yup.string().required("Campo obligatorio"),
@@ -30,11 +31,12 @@ function SignUp() {
           .min(6, "Contraseña demasiado corta - debe contener al menos 6 caracteres."),
       })}
       onSubmit={async (values) => {
+        console.log(values);
         try {
-          const response = await APICalls.post("/auth/register", values);
+          const response = await APICalls.post("/users/register", values);
           sessionStorage.setItem("token", response.data.token);
           resultAlert('Registrado con exito, redireccionando a incio...', 'success');
-          setUser(response.data.data)
+          setUser(response.data.user)
           setTimeout(function(){
             navigate("/");
           }, 2000);

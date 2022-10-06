@@ -12,7 +12,8 @@ const Slider = () => {
         const getSlides = async () => {
             try {
                 const response = await slidesAPI.get('slides')
-                setSlides(response.data.slides)
+                console.log(response.data);
+                setSlides(response.data)
             } catch (error) {
                 setSlides([])
             } finally {

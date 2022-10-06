@@ -14,8 +14,8 @@ export function UserProvider ({ children }) {
     useEffect(() => {
         const getProfile = async () => {
             try {
-                const userData = await profileAPI.get('/auth/me')
-                setUser(userData.data.data.user)
+                const userData = await profileAPI.get('/users/me')
+                setUser(userData.data)
                 setLoaded(true)
             } catch (error) {
                 setUser(null)

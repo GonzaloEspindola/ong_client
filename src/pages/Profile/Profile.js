@@ -60,7 +60,7 @@ const generateInputs = (value, index) => {
         case 'Rol:':
             return (
                 <>
-                    <label key={index} className='bg-yellow-200 p-1 pr-16 pl-16 font-semibold text-yellow-700 shadow-2xl text-center m-auto'>{value[1] === 1 ? 'Standard' : 'Administrador'}</label>
+                    <label key={index} className='bg-yellow-200 p-1 pr-16 pl-16 font-semibold text-yellow-700 shadow-2xl text-center m-auto'>{value[1] === "1" ? 'Standard' : 'Administrador'}</label>
                 </>
             )
         case 'Imagen:': 

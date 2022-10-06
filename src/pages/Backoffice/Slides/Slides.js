@@ -25,7 +25,7 @@ const Slides = () => {
     useEffect(() => {
         const getSlides = async () => {
             const res = await APICalls.get('/slides')
-            setSlides(res.data.slides)
+            setSlides(res.data)
         }
         getSlides();
     }, [])

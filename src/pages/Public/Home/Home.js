@@ -10,13 +10,15 @@ import Loader from "../../../Components/Loader/Loader";
 const Home = () => {
   const [organization, setOrganization] = useState({});
   const [news, setNews] = useState([]);
+  const [members, setMembers] = useState([]);
+  const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getOrganization = async () => {
       try {
-        const res = await ApiCall.get('/organization');
-        setOrganization(res.data.data);
+        const res = await ApiCall.get('/organizations');
+        setOrganization(res.data[0]);
       } catch (error) {
         setOrganization(
           {
@@ -30,10 +32,36 @@ const Home = () => {
       }
     }
 
+    const getMembers = async () => {
+      try {
+        const res = await ApiCall.get('/members');
+        setMembers(res.data)
+      } catch (error) {
+        setMembers([])
+      } finally {
+        setTimeout(function () {
+          setLoading(false)
+        }, 1000);
+      }
+    }
+
+    const getTestimonials = async () => {
+      try {
+        const res = await ApiCall.get('/testimonials');
+        setTestimonials(res.data)
+      } catch (error) {
+        setTestimonials([])
+      } finally {
+        setTimeout(function () {
+          setLoading(false)
+        }, 1000);
+      }
+    }
+
     const getNews = async () => {
       try {
         const res = await ApiCall.get('/news');
-        const lastData = res.data.allNews.reverse()
+        const lastData = res.data.reverse()
         const recortedNews = lastData.slice(0, 2)
         setNews(recortedNews)
       } catch (error) {
@@ -45,6 +73,8 @@ const Home = () => {
       }
     }
     getOrganization();
+    getMembers();
+    getTestimonials();
     getNews();
   }, []);
 
@@ -58,7 +88,7 @@ const Home = () => {
               <div className="flex flex-col justify-between gap-4 m-auto">
                 <div>
                   <h1 className="text-2xl sm:text-3xl font-bold text-center md:text-start mb-6">Hola! Bienvenidx</h1>
-                  <p className="w-6/7 mr-auto ml-auto md:ml-0">{organization.organization.welcomeText}</p>
+                  <p className="w-6/7 mr-auto ml-auto md:ml-0">{organization.welcomeText}</p>
                 </div>
                 <Button route='/contacts' buttonName='Contactanos' styles='formButton' />
               </div>
@@ -66,13 +96,12 @@ const Home = () => {
             </div>
           </div>
 
-          <Slider />
           <LastDataLayout route='/nosotros' title='Nuestro staff'>
-            <DataList data={organization.members} loading={loading} type='member' title='miembros' />
+            <DataList data={members} loading={loading} type='member' title='miembros' />
           </LastDataLayout>
 
           <LastDataLayout route='/testimonials' title='Ultimos testimonios'>
-            <DataList data={organization.testimonials} loading={loading} type='testimonial' title='testimonios' />
+            <DataList data={testimonials} loading={loading} type='testimonial' title='testimonios' />
           </LastDataLayout>
 
           <LastDataLayout route='/news' title='Ultimas novedades'>

@@ -11,10 +11,11 @@ const HomeBackoffice = () => {
 
     useEffect(() => {
         const gethome = async () => {
-            const res = await APICalls.get('/organization')
+            const res = await APICalls.get('/organizations')
+            console.log(res);
             const requiredData = {
-                id: res.data.data.organization.id,
-                welcomeText: res.data.data.organization.welcomeText
+                id: res.data[0].id,
+                welcomeText: res.data[0].welcomeText
             }
             setHomeData(requiredData)
         }

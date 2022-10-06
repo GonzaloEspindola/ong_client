@@ -27,7 +27,7 @@ const MembersBackoffice = () => {
     useEffect(() => {
         const getMembers = async () => {
             const res = await MembersAPI.get('/members')
-            setMembers(res.data.data)
+            setMembers(res.data)
         }
         getMembers();
     }, []);

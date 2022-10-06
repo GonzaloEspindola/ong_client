@@ -12,7 +12,7 @@ const Nosotros = () => {
     const getMembers = async () => {
       try {
         const res = await membersAPI.get('/members')
-        setMembers(res.data.data)
+        setMembers(res.data)
       } catch (error) {
         setMembers([
           {
@@ -43,13 +43,7 @@ const Nosotros = () => {
                 <h3 className="text-2xl mt-4">{members[0].rol}</h3>
               </div>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore
-                tempora omnis amet. Beatae, placeat similique iusto eos nihil
-                temporibus, qui vel aliquam voluptates animi blanditiis natus ab
-                quidem perferendis! Neque ab iusto eveniet hic suscipit eius
-                aspernatur cumque. Nostrum tempore itaque qui impedit assumenda at
-                praesentium quo consequuntur dolorum dolores earum sapiente
-                exercitationem dolore, nemo debitis quae optio porro!
+                Conectamos nacio para ayudar a las personas a conectarse entre si, que la lengua de señas no sea considerado un idioma basico en todas las personas es una problematica de la sociedad actual que debe corregirse. Por eso desde conectamos hacemos todo lo posible para ayudar con esto. Recorda que todos debemos ser parte para lograr una correcta inclusion.
               </p>
               <Button route='/contacts' buttonName='¡Quiero ser parte!' styles='formButton' />
             </div>

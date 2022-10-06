@@ -17,10 +17,10 @@ function App() {
             <div className="flex flex-col min-h-screen">
               <Routes>
                   <Route path='/*' element={<Public />}/>
-                  <Route element={<PrivateRoute allowedRoles={[2]}/>}>
+                  <Route element={<PrivateRoute allowedRoles={["2"]}/>}>
                     <Route path='/backoffice/*' element={<Backoffice />}/>
                   </Route>
-                  <Route element={<PrivateRoute allowedRoles={[1, 2]}/>}>
+                  <Route element={<PrivateRoute allowedRoles={["1", "2"]}/>}>
                     <Route path='/me' element={<Profile />}/>
                   </Route>
               </Routes>

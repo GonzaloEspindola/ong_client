@@ -21,7 +21,7 @@ function Login() {
       }}
       onSubmit={async (values) => {
         try {
-          const response = await APICalls.post("/auth/login", values);
+          const response = await APICalls.post("/users/login", values);
           sessionStorage.setItem(
             "token",
             response.data.token

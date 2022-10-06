@@ -18,6 +18,7 @@ const Contacts = () => {
       validationSchema={Yup.object({
         name: Yup.string().required("Campo obligatorio"),
         email: Yup.string().email().required("Campo obligatorio"),
+        phone: Yup.number().required("Campo obligatorio"),
         message: Yup.string().required("Campo obligatorio")
       })}
       onSubmit = {(values) => {

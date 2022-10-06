@@ -27,8 +27,7 @@ const TestimonialsBackoffice = () => {
     const getTestimonials = async () => {
       const res = await APICalls.get('/testimonials')
       const { data } = res
-      const { allTestimonials } = data
-      setTestimonials(allTestimonials)
+      setTestimonials(data)
     }
     getTestimonials();
   }, [])

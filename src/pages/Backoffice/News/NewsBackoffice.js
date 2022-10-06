@@ -14,8 +14,7 @@ const NewsBackoffice = () => {
         const getNews = async () => {
             const res = await APICalls.get('/news')
             const { data } = res
-            const { allNews } = data
-            setNews(allNews)
+            setNews(data)
         }
         getNews();
     }, [])
@@ -36,8 +35,7 @@ const NewsBackoffice = () => {
     const newsData = {
         name: '',
         content: '',
-        image: '',
-        category: ''
+        image: ''
     }
 
 

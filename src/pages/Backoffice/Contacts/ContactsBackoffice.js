@@ -9,8 +9,8 @@ const ContactsBackoffice = () => {
 
     useEffect(() => {
         const getContacts = async () => {
-            const res = await contactsAPI.get('/Contacts')
-            setContacts(res.data.data)
+            const res = await contactsAPI.get('/contacts')
+            setContacts(res.data)
         }
         getContacts();
     }, []);

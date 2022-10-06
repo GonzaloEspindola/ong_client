@@ -9,7 +9,7 @@ const NewsDetail = () => {
     useEffect(() => {
         const getNew = async () => {
             const res = await newAPI.get(`/news/${id}`)
-            setNews(res.data.newsDetails)
+            setNews(res.data)
         }
         getNew();
     }, [id]);

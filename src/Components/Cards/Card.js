@@ -11,7 +11,7 @@ const Card = ({ element, title, size, index }) => {
                         <img className="object-cover w-full h-full" src={element.image} alt={element.name} />
                     </div>
                     <div className="flex flex-col justify-between px-[16px] pb-[16px] h-full w-full">
-                        <p></p>
+                        <p className="text-[20px] text-center pt-4 font-bold">{element.name}</p>
                         <p className="text-left h-4/4 line-clamp-[6] font-semibold text-xs">{element.content}</p>
                         <button className="bg-dark-blue rounded-lg text-white h-9 shadow-xl hover:bg-blue-800" onClick={() => navigate(`/news/${element.id}`)}>Ver novedad</button>
                     </div>

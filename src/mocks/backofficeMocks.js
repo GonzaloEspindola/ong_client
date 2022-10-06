@@ -5,16 +5,6 @@ const BackofficeMocks = [
         route: 'news'
     },
     {
-        name: "Actividades",
-        image: "https://cdn-icons-png.flaticon.com/512/2686/2686222.png",
-        route: 'activities'
-    },
-    {
-        name: "Categorias",
-        image: "https://cdn-icons-png.flaticon.com/512/3502/3502685.png",
-        route: 'categories'
-    },
-    {
         name: "Testimonios",
         image: "https://cdn-icons-png.flaticon.com/512/2013/2013583.png",
         route: 'testimonials'

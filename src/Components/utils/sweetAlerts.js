@@ -31,16 +31,17 @@ const deleteSweetAlert = (values, route) => {
 }
 
 const postSweetAlert = async (values, route, prevRoute) => {
-    const prevImage = values.image
+    console.log(values);
+    // const prevImage = values.image
     try {
-        switch (values?.image) {
-            case undefined:
-                values.image = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
-                break;
-            default:
-                values.image = prevImage
-                break;
-        }
+        // switch (values?.image) {
+        //     case undefined:
+        //         values.image = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
+        //         break;
+        //     default:
+        //         values.image = prevImage
+        //         break;
+        // }
         await APICalls.post(`/${route}`, values)
         Swal.fire({
             position: 'bottom-end',

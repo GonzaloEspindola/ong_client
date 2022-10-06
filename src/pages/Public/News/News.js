@@ -10,7 +10,7 @@ const News = () => {
         const getNews = async () => {
             try {
                 const res = await newsAPI.get('/news')
-                setNews(res.data.allNews)
+                setNews(res.data)
             } catch (error) {
                 console.log(error)
             }finally {
