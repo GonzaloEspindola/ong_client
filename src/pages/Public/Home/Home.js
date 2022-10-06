@@ -35,7 +35,9 @@ const Home = () => {
     const getMembers = async () => {
       try {
         const res = await ApiCall.get('/members');
-        setMembers(res.data)
+        const lastMembers = res.data.reverse();
+        const recortedMembers = lastMembers.slice(0, 4)
+        setMembers(recortedMembers)
       } catch (error) {
         setMembers([])
       } finally {
@@ -48,7 +50,9 @@ const Home = () => {
     const getTestimonials = async () => {
       try {
         const res = await ApiCall.get('/testimonials');
-        setTestimonials(res.data)
+        const lastTestimonials = res.data.reverse();
+        const recortedTestimonials = lastTestimonials.slice(0, 4)
+        setTestimonials(recortedTestimonials)
       } catch (error) {
         setTestimonials([])
       } finally {
@@ -96,6 +100,7 @@ const Home = () => {
             </div>
           </div>
 
+          <Slider />
           <LastDataLayout route='/nosotros' title='Nuestro staff'>
             <DataList data={members} loading={loading} type='member' title='miembros' />
           </LastDataLayout>
